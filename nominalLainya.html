@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>ATM - Masukan Kartu</title>
+  <link href="/dist/output.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-[#324154] px-28 py-10 h-[100vh] flex items-center">
+  <div class="container bg-[#597298] rounded-lg flex">
+    <div
+      class="heading w-8/12 flex flex-col justify-center justify-center text-white text-center text-[25pt] font-mono px-10 gap-6 text-3xl">
+
+      <h1 class=" w-[600px] text-center ml-14">Masukan jumlah Nominal Hanya pecahan 100.000 dan 50.000</h1>
+      <div class="flex items-center justify-center gap-4">
+        <input class="text-black h-[50px] rounded-lg w-[40%]" type="number" id="input">
+        <button class="text-green-400" onclick="klik()"> Enter >></button>
+        <button class="text-red-400" onclick="location.href = 'nominal.html'">Cancel >></button>
+      </div>
+      <h1>Tekan 'CANCEL' Untuk Membatalkan</h1>
+    </div>
+    <img class="rounded-lg" src="../images/ambil-uang.jpg" width=" 40%" />
+
+  </div>
+
+  <script>
+
+    const saldo = 1000000
+
+    function klik(value) {
+      if (input .value.length > 0) {
+        if (input.value < saldo) {
+          if (input.value % 50000 == 0) {
+            const konfirm = confirm(`Apakah Anda Yakin Akan Mengambil Uang Sebesar ${input.value}, Dengan Saldo Anda ${saldo} `)
+            if (konfirm == true) {
+              location.href = 'ambilKartu.html'
+              alert(`Anda Berhasil Mengambil Uang Sebesar ${input.value}, Saldo Anda Tinggal ${saldo - input.value}`)
+            }
+          } else {
+            alert('nominal tidak tersedia')
+          }
+        } else {
+          alert('saldo anda tidak mencukupi')
+        }
+      } else {
+        alert('isi nominal !')
+      }
+    }
+
+  </script>
+
+</body>
+
+</html>

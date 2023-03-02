@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-[#324154] flex h-screen justify-center items-center p-[50px] text-center px-[50px]">
+  <div class="bg-[#597298] flex justify-between items-center w-full rounded-md">
+    <div class="text-3xl text-white font-semibold ml-[100px]">
+      <h1>Silahkan Pilih Paket Nominal</h1>
+      <div class="flex gap-[100px] mt-10">
+        <div class="flex flex-col gap-10 w-1/2">
+          <button onclick="klik(uang.seratus)">
+            <- 100.000</button>
+              <button onclick="klik(uang.duaratus)">
+                <- 200.000</button>
+                  <button onclick="klik(uang.tigaratus)">
+                    <- 300.000</button>
+                      <a href="./nominalLainnya.html">
+                        <- Nominal Lainya</a>
+        </div>
+
+        <div class="flex flex-col gap-10 w-1/2 ">
+          <button onclick="klik(uang.limaratus)">500.000 -></button>
+          <button onclick="klik(uang.satujuta)">1.000.000 -></button>
+          <button onclick="klik(uang.satujutalimaratus)">1.500.000 -></button>
+          <a class="w-[220px]" href="ambilKartu.html"
+            onclick="confirm ('Fitur Tidak Tersedia!! Apakah Anda Ingin Membatalkan ')"> Transaksi -> Lain</a>
+        </div>
+      </div>
+    </div>
+    <img src="../images/ambil-uang.jpg" />
+  </div>
+  <script>
+    const uang = {
+      seratus: 100000,
+      duaratus: 200000,
+      tigaratus: 300000,
+      limaratus: 500000,
+      satujuta: 1000000,
+      satujutalimaratus: 1500000,
+    }
+    const saldo = 1000000;
+
+    function klik(value) {
+      if (saldo < value) {
+        alert('Saldo tidak cukup')
+      }
+      else if (confirm(`Anda akan mengambil uang sebesar ${value} dengan sisa uang sebesar ${saldo - value}`)) {
+        location.href = 'ambilKartu.html'
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>ATM - Masukan Kartu</title>
+ 
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-[#324154] px-28 py-10 h-[100vh] flex items-center">
+  <div class="container bg-[#597298] rounded-lg flex">
+    <div class="heading w-8/12 flex flex-col items-center
+             justify-center text-white text-center text-[30px] font-mono px-10 gap-7">
+
+      <h1> Silahkan Masukan Pin anda</h1>
+      <div class="flex justify-center items-center gap-5 ">
+        <input class="text-black h-[100%] rounded-lg w-[45%] " type="password" id="input">
+        <button class="text-green-400 text-[20pt]" onclick="klik()">Enter >></button>
+        <button class="text-red-400 text-[20pt]" onclick="location.href='ambilUang.html'">Cancel >></button>
+      </div>
+      <h1>Tekan 'CANCEL' Untuk Membatalkan</h1>
+    </div>
+    <img class="rounded-lg" src="../images/masukan-pin.jpg" width="40%" />
+  </div>
+
+  <script>
+    const input = document.getElementById('input')
+    const user = {
+      pin: "123"
+    }
+
+    function klik() {
+      if (input.value.length > 0) {
+
+        if (input.value == user.pin) {
+          window.location.href = "ambilUang.html"
+        }
+        else {
+          alert("PIN SALAH")
+        }
+      }
+      else {
+        alert("PIN JANGAN KOSONG")
+      }
+    }
+  </script>
+
+</body>
+
+</html>
